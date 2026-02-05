@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Event</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <div class="form-header">
+                <h1>Daftar Event IndoTech</h1>
+                <p>Isi data diri Anda untuk mendaftar</p>
+            </div>
+
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="umur">Umur</label>
+                    <input type="number" id="umur" name="umur" placeholder="Masukkan umur Anda" min="1" max="120" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="noTelepon">Nomor Telepon</label>
+                    <input type="tel" id="noTelepon" name="noTelepon" placeholder="Masukkan nomor telepon" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="asal">Asal Kota/Daerah</label>
+                    <input type="text" id="asal" name="asal" placeholder="Masukkan asal kota/daerah" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pekerjaan">Pekerjaan</label>
+                    <input type="text" id="pekerjaan" name="pekerjaan" placeholder="Masukkan pekerjaan Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="event">Pilih Event</label>
+                    <select id="event" name="event" required>
+                        <option value="">-- Pilih Event --</option>
+                        <option value="Workshop Web Development">Workshop Web Development</option>
+                        <option value="Seminar Digital Marketing">Seminar Digital Marketing</option>
+                        <option value="Bootcamp UI/UX Design">Bootcamp UI/UX Design</option>
+                        <option value="Conference Tech Innovation">Conference Tech Innovation</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pesan">Pesan/Pertanyaan</label>
+                    <textarea id="pesan" name="pesan" placeholder="Tuliskan pesan atau pertanyaan Anda" rows="4"></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                </div>
+            </form>
+
+            <div id="resultContainer" class="result-container" style="display: none;">
+                <div class="result-header">
+                    <h2>✅ Data Pendaftaran Berhasil</h2>
+                    <p>Terima kasih telah mendaftar</p>
+                </div>
+                <div class="result-wrapper">
+                    <div id="resultContent" class="result-content"></div>
+                    <div class="result-button-group">
+                        <button type="button" class="btn-edit-data" onclick="closeResult()">✏️ Edit Data</button>
+                        <button type="button" class="btn-confirm" onclick="confirmRegistration()">✓ Konfirmasi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

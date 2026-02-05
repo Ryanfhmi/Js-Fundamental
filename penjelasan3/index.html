@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjelasan Kode Dashboard Nilai Siswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Penjelasan Kode Dashboard Nilai Siswa</h1>
+            <p class="subtitle">Pemahaman Mendalam tentang Setiap Bagian Kode</p>
+        </header>
+
+        <!-- HTML Section -->
+        <section class="section">
+            <h2>1️⃣ Penjelasan HTML</h2>
+            
+            <div class="subsection">
+                <h3>1.1 Struktur Dasar</h3>
+                <p>HTML adalah kerangka halaman yang mendefinisikan elemen-elemen yang akan ditampilkan.</p>
+                
+                <div class="code-box">
+                    <code>
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="id"&gt;<br>
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+&nbsp;&nbsp;&lt;title&gt;Dashboard Nilai Siswa&lt;/title&gt;<br>
+&nbsp;&nbsp;&lt;link rel="stylesheet" href="style.css"&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;...&lt;/body&gt;<br>
+&lt;/html&gt;
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li><code>&lt;!DOCTYPE html&gt;</code> - Mendeklarasikan bahwa ini adalah dokumen HTML5</li>
+                    <li><code>&lt;meta charset="UTF-8"&gt;</code> - Set encoding karakter agar mendukung huruf Indonesia</li>
+                    <li><code>&lt;link rel="stylesheet" href="style.css"&gt;</code> - Menghubungkan file CSS untuk styling</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>1.2 Form Input Data</h3>
+                <div class="code-box">
+                    <code>
+&lt;div class="form-section"&gt;<br>
+&nbsp;&nbsp;&lt;h2&gt;➕ Input Data Siswa&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;input type="text" id="nama" placeholder="Masukkan nama siswa"&gt;<br>
+&nbsp;&nbsp;&lt;input type="number" id="nilai1" min="0" max="100"&gt;<br>
+&nbsp;&nbsp;&lt;input type="number" id="nilai2" min="0" max="100"&gt;<br>
+&nbsp;&nbsp;&lt;input type="number" id="nilai3" min="0" max="100"&gt;<br>
+&nbsp;&nbsp;&lt;button onclick="tambahSiswa()"&gt;✅ Masukkan Data&lt;/button&gt;<br>
+&lt;/div&gt;
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li><code>type="text"</code> - Input teks untuk nama siswa</li>
+                    <li><code>type="number"</code> - Input angka dengan batasan min="0" dan max="100"</li>
+                    <li><code>id</code> - Identitas unik untuk mengakses elemen di JavaScript</li>
+                    <li><code>onclick="tambahSiswa()"</code> - Tombol yang memanggil fungsi JavaScript</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>1.3 Tabel Hasil</h3>
+                <div class="code-box">
+                    <code>
+&lt;table id="tabelNilai"&gt;<br>
+&nbsp;&nbsp;&lt;thead&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;No&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Nama Siswa&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Nilai 1&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... (kolom lainnya)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&lt;/thead&gt;<br>
+&nbsp;&nbsp;&lt;tbody id="dataSiswa"&gt;&lt;/tbody&gt;<br>
+&lt;/table&gt;
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li><code>&lt;thead&gt;</code> - Header tabel (judul kolom)</li>
+                    <li><code>&lt;tbody&gt;</code> - Isi tabel (data akan diisi oleh JavaScript)</li>
+                    <li><code>&lt;th&gt;</code> - Table header (judul kolom)</li>
+                    <li><code>&lt;tr&gt;</code> - Table row (baris)</li>
+                    <li><code>&lt;td&gt;</code> - Table data (sel)</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>1.4 Elemen untuk JavaScript (ID penting)</h3>
+                <div class="info-box">
+                    <p><strong>ID yang digunakan JavaScript:</strong></p>
+                    <table class="mini-table">
+                        <tr>
+                            <td><code>id="nama"</code></td>
+                            <td>Mengambil nilai input nama</td>
+                        </tr>
+                        <tr>
+                            <td><code>id="nilai1"</code></td>
+                            <td>Mengambil nilai input nilai 1</td>
+                        </tr>
+                        <tr>
+                            <td><code>id="dataSiswa"</code></td>
+                            <td>Tempat menampilkan data tabel</td>
+                        </tr>
+                        <tr>
+                            <td><code>id="totalSiswa"</code></td>
+                            <td>Menampilkan total siswa</td>
+                        </tr>
+                        <tr>
+                            <td><code>id="rataRataKelas"</code></td>
+                            <td>Menampilkan rata-rata kelas</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS Section -->
+        <section class="section">
+            <h2>2️⃣ Penjelasan CSS</h2>
+
+            <div class="subsection">
+                <h3>2.1 Reset dan Styling Dasar</h3>
+                <div class="code-box">
+                    <code>
+* {<br>
+&nbsp;&nbsp;margin: 0;<br>
+&nbsp;&nbsp;padding: 0;<br>
+&nbsp;&nbsp;box-sizing: border-box;<br>
+}<br>
+<br>
+body {<br>
+&nbsp;&nbsp;font-family: 'Segoe UI', sans-serif;<br>
+&nbsp;&nbsp;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);<br>
+&nbsp;&nbsp;min-height: 100vh;<br>
+&nbsp;&nbsp;padding: 40px 20px;<br>
+}
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li><code>* { ... }</code> - Selector universal, mengatur semua elemen</li>
+                    <li><code>margin: 0; padding: 0;</code> - Menghilangkan spasi default</li>
+                    <li><code>box-sizing: border-box;</code> - Border dan padding tidak menambah ukuran</li>
+                    <li><code>background: linear-gradient()</code> - Gradient warna dari biru ke ungu</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>2.2 Grid dan Flexbox</h3>
+                <div class="code-box">
+                    <code>
+.form-row {<br>
+&nbsp;&nbsp;display: grid;<br>
+&nbsp;&nbsp;grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));<br>
+&nbsp;&nbsp;gap: 20px;<br>
+}<br>
+<br>
+.stats-grid {<br>
+&nbsp;&nbsp;display: grid;<br>
+&nbsp;&nbsp;grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));<br>
+&nbsp;&nbsp;gap: 20px;<br>
+}
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li><code>display: grid;</code> - Menggunakan CSS Grid untuk layout</li>
+                    <li><code>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</code> - Kolom otomatis menyesuaikan, minimal 200px</li>
+                    <li><code>gap: 20px;</code> - Jarak antar elemen</li>
+                    <li><strong>Responsive:</strong> Di layar kecil, kolom akan otomatis berkurang</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>2.3 Styling Input dan Button</h3>
+                <div class="code-box">
+                    <code>
+input {<br>
+&nbsp;&nbsp;width: 100%;<br>
+&nbsp;&nbsp;padding: 12px;<br>
+&nbsp;&nbsp;border: 2px solid #e0e0e0;<br>
+&nbsp;&nbsp;border-radius: 8px;<br>
+&nbsp;&nbsp;transition: all 0.3s ease;<br>
+}<br>
+<br>
+input:focus {<br>
+&nbsp;&nbsp;outline: none;<br>
+&nbsp;&nbsp;border-color: #667eea;<br>
+&nbsp;&nbsp;box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);<br>
+}
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li><code>:focus</code> - Pseudo-class saat input diklik/aktif</li>
+                    <li><code>border-color: #667eea;</code> - Ganti warna border saat aktif</li>
+                    <li><code>box-shadow</code> - Tambah shadow untuk efek</li>
+                    <li><code>transition: all 0.3s ease;</code> - Perubahan smooth selama 0.3 detik</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>2.4 Warna Predikat</h3>
+                <div class="code-box">
+                    <code>
+.predikat.a { background-color: #4caf50; color: white; } /* Hijau */<br>
+.predikat.b { background-color: #2196f3; color: white; } /* Biru */<br>
+.predikat.c { background-color: #ff9800; color: white; } /* Orange */<br>
+.predikat.d { background-color: #f44336; color: white; } /* Merah */
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li>Setiap predikat memiliki warna berbeda untuk mudah dibedakan</li>
+                    <li>Kombinasi class: <code>.predikat.a</code> = elemen dengan class "predikat" DAN "a"</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- JavaScript Section -->
+        <section class="section">
+            <h2>3️⃣ Penjelasan JavaScript</h2>
+
+            <div class="subsection">
+                <h3>3.1 Array untuk Menyimpan Data</h3>
+                <div class="code-box">
+                    <code>
+let dataSiswa = [];
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li>Array kosong untuk menyimpan semua data siswa</li>
+                    <li>Setiap siswa adalah object dengan properti: nama, nilai1, nilai2, nilai3, nilaiAkhir, predikat, status</li>
+                    <li><code>let</code> - Variabel yang bisa diubah (mutable)</li>
+                </ul>
+                <div class="example-box">
+                    <p><strong>Contoh isi array setelah tambah 1 siswa:</strong></p>
+                    <code>
+dataSiswa = [<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nama: "Budi",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nilai1: 80,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nilai2: 85,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nilai3: 90,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nilaiAkhir: 85,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;predikat: "A",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;status: "Lulus"<br>
+&nbsp;&nbsp;}<br>
+]
+                    </code>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>3.2 Fungsi Menghitung Rata-Rata</h3>
+                <div class="code-box">
+                    <code>
+function hitungRataRata(n1, n2, n3) {<br>
+&nbsp;&nbsp;return Math.round(((n1 + n2 + n3) / 3) * 100) / 100;<br>
+}
+                    </code>
+                </div>
+                <p><strong>Penjelasan Step-by-Step:</strong></p>
+                <div class="step-box">
+                    <p><strong>Contoh:</strong> Nilai = 80, 85, 90</p>
+                    <p>1. <code>(80 + 85 + 90) / 3 = 255 / 3 = 85</code></p>
+                    <p>2. <code>85 * 100 = 8500</code></p>
+                    <p>3. <code>Math.round(8500) = 8500</code></p>
+                    <p>4. <code>8500 / 100 = 85</code></p>
+                    <p><strong>Hasil: 85</strong></p>
+                </div>
+                <p><strong>Mengapa * 100 kemudian / 100?</strong></p>
+                <p>Untuk pembulatan ke 2 desimal. Contoh: 85.67 ≈ 85.67, bukan 86</p>
+            </div>
+
+            <div class="subsection">
+                <h3>3.3 Fungsi Tentukan Predikat</h3>
+                <div class="code-box">
+                    <code>
+function tentakanPredikat(nilaiAkhir) {<br>
+&nbsp;&nbsp;if (nilaiAkhir >= 85) return 'A';<br>
+&nbsp;&nbsp;if (nilaiAkhir >= 75) return 'B';<br>
+&nbsp;&nbsp;if (nilaiAkhir >= 65) return 'C';<br>
+&nbsp;&nbsp;return 'D';<br>
+}
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li>Menggunakan if-else bertingkat untuk cek kondisi</li>
+                    <li><code>return</code> - Mengembalikan nilai dan keluar dari fungsi</li>
+                    <li><strong>Alur:</strong>
+                        <ul>
+                            <li>Jika nilai ≥ 85 → Return 'A' (selesai)</li>
+                            <li>Jika nilai ≥ 75 → Return 'B' (selesai)</li>
+                            <li>Jika nilai ≥ 65 → Return 'C' (selesai)</li>
+                            <li>Selainnya → Return 'D'</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="example-box">
+                    <p><strong>Contoh:</strong></p>
+                    <p>tentakanPredikat(88) → 'A'</p>
+                    <p>tentakanPredikat(78) → 'B'</p>
+                    <p>tentakanPredikat(68) → 'C'</p>
+                    <p>tentakanPredikat(60) → 'D'</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>3.4 Fungsi Tentukan Status</h3>
+                <div class="code-box">
+                    <code>
+function tentakanStatus(nilaiAkhir) {<br>
+&nbsp;&nbsp;return nilaiAkhir >= 70 ? 'Lulus' : 'Tidak Lulus';<br>
+}
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li>Menggunakan Ternary Operator: <code>kondisi ? nilai_true : nilai_false</code></li>
+                    <li>Jika nilai ≥ 70 → 'Lulus', selainnya → 'Tidak Lulus'</li>
+                    <li>Lebih ringkas daripada if-else</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>3.5 Fungsi Tambah Siswa (Fungsi Utama)</h3>
+                <div class="code-box">
+                    <code>
+function tambahSiswa() {<br>
+&nbsp;&nbsp;// 1. Ambil nilai dari input<br>
+&nbsp;&nbsp;const nama = document.getElementById('nama').value.trim();<br>
+&nbsp;&nbsp;const nilai1 = parseFloat(document.getElementById('nilai1').value);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 2. Validasi input<br>
+&nbsp;&nbsp;if (!nama) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;alert('Nama tidak boleh kosong!');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return; // Hentikan fungsi<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 3. Hitung nilai akhir dan tentukan predikat<br>
+&nbsp;&nbsp;const nilaiAkhir = hitungRataRata(nilai1, nilai2, nilai3);<br>
+&nbsp;&nbsp;const predikat = tentakanPredikat(nilaiAkhir);<br>
+&nbsp;&nbsp;const status = tentakanStatus(nilaiAkhir);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 4. Tambah ke array<br>
+&nbsp;&nbsp;dataSiswa.push({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nama: nama,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nilai1: nilai1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 5. Perbarui tampilan<br>
+&nbsp;&nbsp;tampilkanTabel();<br>
+&nbsp;&nbsp;hitungStatistik();<br>
+}
+                    </code>
+                </div>
+                <p><strong>Penjelasan Alur:</strong></p>
+                <div class="flow-box">
+                    <p>1️⃣ <strong>Ambil Nilai Input</strong> → Gunakan <code>document.getElementById()</code></p>
+                    <p>2️⃣ <strong>Validasi</strong> → Cek apakah input valid, jika tidak → alert</p>
+                    <p>3️⃣ <strong>Hitung</strong> → Hitung rata-rata, predikat, status</p>
+                    <p>4️⃣ <strong>Simpan</strong> → Push ke array menggunakan <code>.push()</code></p>
+                    <p>5️⃣ <strong>Update UI</strong> → Tampilkan di tabel dan hitung statistik</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>3.6 Fungsi Tampilkan Tabel</h3>
+                <div class="code-box">
+                    <code>
+function tampilkanTabel() {<br>
+&nbsp;&nbsp;const tbody = document.getElementById('dataSiswa');<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;if (dataSiswa.length === 0) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tbody.innerHTML = '&lt;tr&gt;&lt;td colspan="9"&gt;Belum ada data&lt;/td&gt;&lt;/tr&gt;';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;tbody.innerHTML = dataSiswa.map((siswa, index) => `<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;${index + 1}&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;${siswa.nama}&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+&nbsp;&nbsp;`).join('');<br>
+}
+                    </code>
+                </div>
+                <p><strong>Penjelasan:</strong></p>
+                <ul>
+                    <li><code>document.getElementById('dataSiswa')</code> - Ambil element tbody</li>
+                    <li><code>.length === 0</code> - Cek apakah array kosong</li>
+                    <li><code>.map()</code> - Loop array dan transform menjadi HTML string</li>
+                    <li><code>${}</code> - Template literal untuk masukkan value JS ke string</li>
+                    <li><code>.join('')</code> - Gabungkan array element menjadi 1 string</li>
+                    <li><code>innerHTML</code> - Set content HTML ke element</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>3.7 Fungsi Hitung Statistik</h3>
+                <div class="code-box">
+                    <code>
+function hitungStatistik() {<br>
+&nbsp;&nbsp;const totalSiswa = dataSiswa.length;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// Hitung rata-rata kelas<br>
+&nbsp;&nbsp;const rataRataKelas = totalSiswa > 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;? Math.round((dataSiswa.reduce((sum, siswa) => sum + siswa.nilaiAkhir, 0) / totalSiswa) * 100) / 100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;: 0;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// Hitung lulus<br>
+&nbsp;&nbsp;const jumlahLulus = dataSiswa.filter(siswa => siswa.status === 'Lulus').length;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// Update DOM<br>
+&nbsp;&nbsp;document.getElementById('totalSiswa').textContent = totalSiswa;<br>
+&nbsp;&nbsp;document.getElementById('rataRataKelas').textContent = rataRataKelas.toFixed(2);<br>
+}
+                    </code>
+                </div>
+                <p><strong>Penjelasan Method Array:</strong></p>
+                <ul>
+                    <li><code>.reduce()</code> - Hitung sum dari semua nilai
+                        <ul>
+                            <li><code>(sum, siswa) => sum + siswa.nilaiAkhir</code> - Akumulasi nilai</li>
+                            <li><code>0</code> - Nilai awal sum</li>
+                        </ul>
+                    </li>
+                    <li><code>.filter()</code> - Filter array berdasarkan kondisi
+                        <ul>
+                            <li>Ambil hanya siswa dengan status 'Lulus'</li>
+                            <li><code>.length</code> - Hitung jumlah hasil filter</li>
+                        </ul>
+                    </li>
+                    <li><code>.toFixed(2)</code> - Format angka ke 2 desimal</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Flow Chart -->
+        <section class="section">
+            <h2>4️⃣ Alur Program Secara Keseluruhan</h2>
+            <div class="flowchart">
+                <div class="flow-step">User Buka Halaman</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">User Input Nama + 3 Nilai</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">User Klik Button "Masukkan Data"</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Fungsi tambahSiswa() dipanggil</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Validasi Input (cek nama, nilai kosong/invalid)</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Hitung Rata-Rata dari 3 Nilai</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Tentukan Predikat (A/B/C/D)</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Tentukan Status (Lulus/Tidak Lulus)</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Simpan ke Array dataSiswa</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Tampilkan Tabel (tampilkanTabel())</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Hitung Statistik (hitungStatistik())</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Update UI (tabel + statistik)</div>
+            </div>
+        </section>
+
+        <!-- Key Concepts -->
+        <section class="section">
+            <h2>5️⃣ Konsep Penting yang Digunakan</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h4>📌 DOM Manipulation</h4>
+                    <p><code>document.getElementById()</code> - Ambil element HTML</p>
+                    <p><code>.value</code> - Ambil value input</p>
+                    <p><code>.textContent</code> - Set text content</p>
+                    <p><code>.innerHTML</code> - Set HTML content</p>
+                </div>
+
+                <div class="concept-card">
+                    <h4>📌 Array Methods</h4>
+                    <p><code>.push()</code> - Tambah element ke array</p>
+                    <p><code>.map()</code> - Transform array</p>
+                    <p><code>.filter()</code> - Filter array</p>
+                    <p><code>.reduce()</code> - Hitung sum/aggregate</p>
+                </div>
+
+                <div class="concept-card">
+                    <h4>📌 Template Literals</h4>
+                    <p><code>`string ${variable}`</code></p>
+                    <p>Gunakan backtick (`) bukan quote</p>
+                    <p>Bisa include variable dengan ${}</p>
+                </div>
+
+                <div class="concept-card">
+                    <h4>📌 Conditional Logic</h4>
+                    <p><code>if-else</code> - Percabangan</p>
+                    <p><code>? :</code> - Ternary operator</p>
+                    <p><code>||, &&</code> - Logical operator</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips -->
+        <section class="section">
+            <h2>6️⃣ Tips & Best Practice</h2>
+            <div class="tips-box">
+                <h4>✅ Yang Sudah Baik:</h4>
+                <ul>
+                    <li>Validasi input sebelum mengolah data</li>
+                    <li>Memisahkan logika (fungsi) dan UI</li>
+                    <li>Menggunakan ID unik untuk setiap element</li>
+                    <li>Responsive design dengan CSS Grid</li>
+                    <li>Array untuk menyimpan data dinamis</li>
+                </ul>
+
+                <h4>🚀 Cara Improve:</h4>
+                <ul>
+                    <li>Tambah fitur edit siswa</li>
+                    <li>Simpan data ke localStorage agar tidak hilang saat refresh</li>
+                    <li>Tambah fitur export ke CSV/Excel</li>
+                    <li>Sorting tabel berdasarkan kolom</li>
+                    <li>Tambah search/filter siswa</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

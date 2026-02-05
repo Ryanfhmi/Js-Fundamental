@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Nilai Siswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Dashboard Nilai Siswa</h1>
+        
+        <!-- Form Input -->
+        <div class="form-section">
+            <h2>➕ Input Data Siswa</h2>
+            <div class="form-group">
+                <label for="nama">Nama Siswa:</label>
+                <input type="text" id="nama" placeholder="Masukkan nama siswa">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nilai1">Nilai 1:</label>
+                    <input type="number" id="nilai1" min="0" max="100" placeholder="0-100">
+                </div>
+                <div class="form-group">
+                    <label for="nilai2">Nilai 2:</label>
+                    <input type="number" id="nilai2" min="0" max="100" placeholder="0-100">
+                </div>
+                <div class="form-group">
+                    <label for="nilai3">Nilai 3:</label>
+                    <input type="number" id="nilai3" min="0" max="100" placeholder="0-100">
+                </div>
+            </div>
+
+            <button onclick="tambahSiswa()" class="btn-submit">✅ Masukkan Data</button>
+        </div>
+
+        <!-- Tabel Hasil -->
+        <div class="table-section">
+            <h2>📋 Daftar Nilai Siswa</h2>
+            <div class="table-wrapper">
+                <table id="tabelNilai">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Siswa</th>
+                            <th>Nilai 1</th>
+                            <th>Nilai 2</th>
+                            <th>Nilai 3</th>
+                            <th>Nilai Akhir</th>
+                            <th>Predikat</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataSiswa">
+                        <tr>
+                            <td colspan="9" style="text-align: center; color: #999;">Belum ada data siswa</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Statistik Kelas -->
+        <div class="stats-section">
+            <h2>📈 Statistik Kelas</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Siswa</div>
+                    <div class="stat-value" id="totalSiswa">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Rata-Rata Kelas</div>
+                    <div class="stat-value" id="rataRataKelas">0.00</div>
+                </div>
+                <div class="stat-card success">
+                    <div class="stat-label">✅ Lulus</div>
+                    <div class="stat-value" id="jumlahLulus">0</div>
+                </div>
+                <div class="stat-card danger">
+                    <div class="stat-label">❌ Tidak Lulus</div>
+                    <div class="stat-value" id="jumlahTidakLulus">0</div>
+                </div>
+            </div>
+
+            <div class="stats-detailed">
+                <h3>Detail Predikat</h3>
+                <div class="predikat-grid">
+                    <div class="predikat-item">
+                        <span class="predikat-badge a">A</span>
+                        <span>85 - 100</span>
+                        <span id="countA" style="font-weight: bold;">0 siswa</span>
+                    </div>
+                    <div class="predikat-item">
+                        <span class="predikat-badge b">B</span>
+                        <span>75 - 84</span>
+                        <span id="countB" style="font-weight: bold;">0 siswa</span>
+                    </div>
+                    <div class="predikat-item">
+                        <span class="predikat-badge c">C</span>
+                        <span>65 - 74</span>
+                        <span id="countC" style="font-weight: bold;">0 siswa</span>
+                    </div>
+                    <div class="predikat-item">
+                        <span class="predikat-badge d">D</span>
+                        <span>< 65</span>
+                        <span id="countD" style="font-weight: bold;">0 siswa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="action-section">
+            <button onclick="resetData()" class="btn-reset">🔄 Reset Semua Data</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

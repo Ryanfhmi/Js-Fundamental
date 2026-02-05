@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjelasan Looping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Memahami LOOPING</h1>
+        
+        <div class="card">
+            <h2>📌 Apa itu Looping?</h2>
+            <p>Looping adalah cara untuk menjalankan kode yang sama berkali-kali tanpa perlu menulis ulang. 
+            Kita gunakan ketika ingin melakukan sesuatu berkali-kali dengan kondisi yang berubah.</p>
+        </div>
+
+        <div class="card">
+            <h2>🎯 Jenis-jenis Looping</h2>
+            
+            <div class="loop-section">
+                <h3>1. FOR LOOP (Yang Paling Umum)</h3>
+                <div class="code-block">
+                    <code>
+for (let i = 1; i <= 10; i++) {
+    // kode di sini dijalankan 10 kali
+    console.log(i);
+}
+                    </code>
+                </div>
+                <div class="breakdown">
+                    <p><strong>let i = 1;</strong> → Variabel i dimulai dari 1</p>
+                    <p><strong>i <= 10;</strong> → Terus looping selama i masih ≤ 10</p>
+                    <p><strong>i++;</strong> → Setiap iterasi, i ditambah 1</p>
+                </div>
+                <button onclick="demonstrateForLoop()">Run For Loop (1-10)</button>
+                <div id="forLoopOutput" class="output"></div>
+            </div>
+
+            <div class="loop-section">
+                <h3>2. WHILE LOOP</h3>
+                <div class="code-block">
+                    <code>
+let i = 1;
+while (i <= 10) {
+    console.log(i);
+    i++; // JANGAN LUPA! Kalau tidak ada ini, akan loop selamanya
+}
+                    </code>
+                </div>
+                <button onclick="demonstrateWhileLoop()">Run While Loop (1-10)</button>
+                <div id="whileLoopOutput" class="output"></div>
+            </div>
+
+            <div class="loop-section">
+                <h3>3. DO...WHILE LOOP</h3>
+                <div class="code-block">
+                    <code>
+let i = 1;
+do {
+    console.log(i);
+    i++;
+} while (i <= 10);
+                    </code>
+                </div>
+                <p style="color: #d4845c; font-weight: bold;">✨ Bedanya: dijalankan minimal 1x walaupun kondisi salah</p>
+                <button onclick="demonstrateDoWhileLoop()">Run Do...While Loop (1-10)</button>
+                <div id="doWhileLoopOutput" class="output"></div>
+            </div>
+
+            <div class="loop-section">
+                <h3>4. FOR...OF LOOP (Untuk Array)</h3>
+                <div class="code-block">
+                    <code>
+let buah = ['Apel', 'Mangga', 'Jeruk'];
+for (let item of buah) {
+    console.log(item);
+}
+                    </code>
+                </div>
+                <button onclick="demonstrateForOfLoop()">Run For...Of Loop</button>
+                <div id="forOfLoopOutput" class="output"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💡 Contoh Praktis: Print Angka 1-10 Berurutan</h2>
+            <div class="code-block">
+                <code>
+for (let i = 1; i <= 10; i++) {
+    console.log(i); // atau document.write(i + " ");
+}
+// Output: 1 2 3 4 5 6 7 8 9 10
+                </code>
+            </div>
+            <button onclick="printNumbers()">Coba Print 1-10</button>
+            <div id="numberOutput" class="output"></div>
+        </div>
+
+        <div class="card">
+            <h2>🔍 Cara Kerja Step-by-Step</h2>
+            <div class="step-by-step">
+                <div class="step">
+                    <strong>Step 1:</strong> i = 1 → Kondisi (1 <= 10)? YA ✅ → Cetak: 1 → i++ jadi 2
+                </div>
+                <div class="step">
+                    <strong>Step 2:</strong> i = 2 → Kondisi (2 <= 10)? YA ✅ → Cetak: 2 → i++ jadi 3
+                </div>
+                <div class="step">
+                    <strong>Step 3:</strong> i = 3 → Kondisi (3 <= 10)? YA ✅ → Cetak: 3 → i++ jadi 4
+                </div>
+                <div class="step">
+                    <strong>...</strong> (terus sampai...)
+                </div>
+                <div class="step">
+                    <strong>Step 10:</strong> i = 10 → Kondisi (10 <= 10)? YA ✅ → Cetak: 10 → i++ jadi 11
+                </div>
+                <div class="step">
+                    <strong>Step 11:</strong> i = 11 → Kondisi (11 <= 10)? TIDAK ❌ → STOP LOOPING
+                </div>
+            </div>
+        </div>
+
+        <div class="card warning">
+            <h2>⚠️ HATI-HATI: Infinite Loop (Loop Selamanya)</h2>
+            <div class="code-block" style="background-color: #ffebee;">
+                <code style="color: #c62828;">
+// ❌ JANGAN BEGINI - akan loop selamanya!
+for (let i = 1; i <= 10; i--) {
+    console.log(i); // i malah berkurang jadi tidak akan pernah <= 10
+}
+
+// ❌ JANGAN BEGINI JUGA
+while (true) {
+    console.log("Loop selamanya!");
+}
+                </code>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>✅ Tips & Trik</h2>
+            <ul>
+                <li><strong>Increment (i++):</strong> Naikkan nilai → gunakan untuk looping maju</li>
+                <li><strong>Decrement (i--):</strong> Turunkan nilai → gunakan untuk looping mundur</li>
+                <li><strong>i += 2:</strong> Naikkan 2x lipat → gunakan untuk skip angka</li>
+                <li><strong>Selalu pastikan ada perubahan variabel</strong> agar tidak infinite loop</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

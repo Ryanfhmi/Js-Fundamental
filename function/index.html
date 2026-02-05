@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Function — Full</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Materi lengkap tentang function di JavaScript: teori, contoh, dan latihan interaktif.">
+    <style>
+        /* Small inline tweak so page looks good if style.css not loaded immediately */
+        .top-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Materi Lengkap: Function di JavaScript</h1>
+            <p class="subtitle">Konsep, contoh, variasi, dan latihan interaktif untuk pemahaman penuh.</p>
+            <div class="top-actions">
+                <button id="runAll" class="btn">Jalankan Semua Contoh</button>
+                <button id="resetAll" class="btn">Reset Output</button>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Pendahuluan</h2>
+            <p>Function (fungsi) adalah blok kode yang dirancang untuk melakukan tugas tertentu. Fungsi membantu membuat kode lebih modular dan dapat digunakan kembali.</p>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h4>Apa itu Function?</h4>
+                    <p>Function memungkinkan Anda mengemas beberapa baris kode dan memanggilnya berkali-kali dengan parameter berbeda.</p>
+                </div>
+                <div class="concept-card">
+                    <h4>Manfaat</h4>
+                    <p>Meningkatkan keterbacaan, mengurangi duplikasi, dan memudahkan pengujian.</p>
+                </div>
+                <div class="concept-card">
+                    <h4>Jenis</h4>
+                    <p>Function declaration, function expression, arrow function, IIFE, higher-order function.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="basics" class="section">
+            <h2>1. Sintaks Dasar</h2>
+            <p>Contoh function deklarasi (declaration):</p>
+            <pre class="code-box" id="code-decl">
+function greet(name) {
+    return "Halo, " + name + "!";
+}
+
+console.log(greet('Budi'));
+            </pre>
+            <div class="example-box">
+                <button class="run-btn btn" data-target="decl">Jalankan</button>
+                <button class="toggle-solution btn" data-target="decl">Lihat Penjelasan</button>
+                <pre class="run-output" id="output-decl"></pre>
+                <div class="info-box solution" id="solution-decl" style="display:none">
+                    <strong>Penjelasan:</strong> Fungsi `greet` menerima parameter `name` dan mengembalikan string sapaan.
+                </div>
+            </div>
+        </section>
+
+        <section id="types" class="section">
+            <h2>2. Variasi Function</h2>
+            <h3>Function Expression</h3>
+            <pre class="code-box" id="code-exp">
+const add = function(a, b) {
+  return a + b;
+};
+
+console.log(add(2, 3));
+            </pre>
+            <div class="example-box">
+                <button class="run-btn btn" data-target="exp">Jalankan</button>
+                <button class="toggle-solution btn" data-target="exp">Lihat Penjelasan</button>
+                <pre class="run-output" id="output-exp"></pre>
+                <div class="info-box solution" id="solution-exp" style="display:none">
+                    <strong>Penjelasan:</strong> Function expression disimpan dalam variabel. Tidak dihoisting seperti deklarasi.
+                </div>
+            </div>
+
+            <h3>Arrow Function</h3>
+            <pre class="code-box" id="code-arrow">
+const square = x => x * x;
+console.log(square(5));
+            </pre>
+            <div class="example-box">
+                <button class="run-btn btn" data-target="arrow">Jalankan</button>
+                <button class="toggle-solution btn" data-target="arrow">Lihat Penjelasan</button>
+                <pre class="run-output" id="output-arrow"></pre>
+                <div class="info-box solution" id="solution-arrow" style="display:none">
+                    <strong>Penjelasan:</strong> Arrow function punya sintaks ringkas dan perilaku `this` berbeda.
+                </div>
+            </div>
+
+            <h3>Higher-order Function</h3>
+            <pre class="code-box" id="code-hof">
+function applyTwice(fn, value) {
+  return fn(fn(value));
+}
+
+const inc = x => x + 1;
+console.log(applyTwice(inc, 3));
+            </pre>
+            <div class="example-box">
+                <button class="run-btn btn" data-target="hof">Jalankan</button>
+                <button class="toggle-solution btn" data-target="hof">Lihat Penjelasan</button>
+                <pre class="run-output" id="output-hof"></pre>
+                <div class="info-box solution" id="solution-hof" style="display:none">
+                    <strong>Penjelasan:</strong> Higher-order function menerima atau mengembalikan function.
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="section">
+            <h2>3. Topik Lanjutan</h2>
+            <h3>Recursive Function</h3>
+            <pre class="code-box" id="code-rec">
+function factorial(n) {
+  if (n <= 1) return 1;
+  return n * factorial(n - 1);
+}
+console.log(factorial(5)); // 120
+            </pre>
+            <div class="example-box">
+                <button class="run-btn btn" data-target="rec">Jalankan</button>
+                <button class="toggle-solution btn" data-target="rec">Lihat Penjelasan</button>
+                <pre class="run-output" id="output-rec"></pre>
+                <div class="info-box solution" id="solution-rec" style="display:none">
+                    <strong>Penjelasan:</strong> Rekursi memanggil fungsi itu sendiri; perhatikan kondisi berhenti.
+                </div>
+            </div>
+
+            <h3>IIFE (Immediately Invoked Function Expression)</h3>
+            <pre class="code-box" id="code-iife">
+(function() {
+  console.log('IIFE dijalankan segera');
+})();
+            </pre>
+            <div class="example-box">
+                <button class="run-btn btn" data-target="iife">Jalankan</button>
+                <button class="toggle-solution btn" data-target="iife">Lihat Penjelasan</button>
+                <pre class="run-output" id="output-iife"></pre>
+                <div class="info-box solution" id="solution-iife" style="display:none">
+                    <strong>Penjelasan:</strong> IIFE berguna untuk membuat scope lokal tanpa polusi global.
+                </div>
+            </div>
+        </section>
+
+        <section id="syntax-features" class="section">
+            <h2>4. Fitur Sintaks & Praktik Baik</h2>
+            <ul>
+                <li>Parameter default: <code>function f(a = 1) { ... }</code></li>
+                <li>Rest parameter: <code>function sum(...nums) {}</code></li>
+                <li>Spread untuk memanggil/menyalin array: <code>fn(...arr)</code></li>
+                <li>Jangan gunakan eval di produksi — hanya untuk contoh belajar.</li>
+            </ul>
+        </section>
+
+        <section id="exercises" class="section">
+            <h2>5. Latihan</h2>
+            <div class="step-box">
+                <p><strong>Latihan 1:</strong> Buat function `isPrime(n)` yang mengembalikan true jika `n` bilangan prima.</p>
+                <button class="toggle-solution btn" data-target="ex1">Lihat Solusi</button>
+                <pre class="code-box" id="code-ex1">
+function isPrime(n) {
+  // kerjakan di sini
+}
+
+console.log(isPrime(7)); // true
+                </pre>
+                <div class="info-box solution" id="solution-ex1" style="display:none">
+<pre>
+function isPrime(n) {
+  if (n <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+</pre>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <p><strong>Latihan 2:</strong> Implementasikan `mapCustom(arr, fn)` yang bekerja seperti `Array.prototype.map`.</p>
+                <button class="toggle-solution btn" data-target="ex2">Lihat Solusi</button>
+                <pre class="code-box" id="code-ex2">
+function mapCustom(arr, fn) {
+  // kerjakan di sini
+}
+
+console.log(mapCustom([1,2,3], x => x*2)); // [2,4,6]
+                </pre>
+                <div class="info-box solution" id="solution-ex2" style="display:none">
+<pre>
+function mapCustom(arr, fn) {
+  const out = [];
+  for (let i = 0; i < arr.length; i++) out.push(fn(arr[i], i, arr));
+  return out;
+}
+</pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Referensi & Contoh Lanjutan</h2>
+            <ul>
+                <li>Lihat file README untuk ringkasan dan file contoh pada folder <code>examples/</code>.</li>
+            </ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types</title>
+</head>
+<body>
+    <h1>JavaScript Data Types</h1>
+    <p id="output"></p>
+    <p id="color"></p>
+
+    <script>
+        let str = "Hello, World!";
+        let num = 42;
+        let bool = true;
+        let undef;
+        let nul = null;
+        let obj = { name: "Alice", age: 30 };
+        let arr = [1, 2, 3, 4, 5];
+        var color = "blue";
+
+
+        let output = `
+            String: ${str} <br>
+            Number: ${num} <br>
+            Boolean: ${bool} <br>
+            Undefined: ${undef} <br>
+            Null: ${nul} <br>
+            Object: ${JSON.stringify(obj)} <br>
+            Array: ${arr.join(", ")}
+        `;
+
+        document.getElementById("output").innerHTML = output;
+        document.getElementById("color").innerText = "Color: " + color;
+    </script>
+    <script src="datatype.js"></script>
+</body>
+</html>
