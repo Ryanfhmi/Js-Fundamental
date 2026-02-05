@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pelanggan - QRIS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="qris-header">
+            <div class="logo-section">
+                <h1>📊 Daftar Data Pelanggan</h1>
+                <p>Kelola dan lihat semua data pembeli QRIS</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Scan</a>
+                <a href="list.html" class="nav-link active">Data Pelanggan</a>
+            </nav>
+        </header>
+
+        <main class="main-content" style="grid-template-columns: 1fr;">
+            <section class="scan-section">
+                <!-- STATISTICS -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                    <div class="card stat-card">
+                        <h3>👥 Total Pelanggan</h3>
+                        <p class="stat-number" id="totalCustomers">0</p>
+                    </div>
+                    <div class="card stat-card">
+                        <h3>💰 Total Transaksi</h3>
+                        <p class="stat-number" id="totalRevenue">Rp 0</p>
+                    </div>
+                    <div class="card stat-card">
+                        <h3>📈 Rata-rata Transaksi</h3>
+                        <p class="stat-number" id="avgTransaction">Rp 0</p>
+                    </div>
+                </div>
+
+                <!-- FILTER & SEARCH -->
+                <div class="card">
+                    <h2>🔎 Pencarian & Filter</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Cari nama, email, atau barcode..."
+                            class="search-input"
+                        >
+                        <select id="filterTipe" class="search-input">
+                            <option value="">Semua Tipe Pembeli</option>
+                            <option value="individu">Individu</option>
+                            <option value="bisnis">Bisnis</option>
+                            <option value="korporat">Korporat</option>
+                            <option value="reseller">Reseller</option>
+                        </select>
+                        <div style="display: flex; gap: 5px;">
+                            <button id="filterBtn" class="btn btn-primary" style="flex:1;">🔍 Filter</button>
+                            <button id="resetFilterBtn" class="btn btn-secondary" style="flex:1;">Reset</button>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <a href="index.html" class="btn btn-primary">➕ Tambah Data Baru</a>
+                        <button id="exportBtn" class="btn btn-info">📥 Export CSV</button>
+                        <button id="deleteAllBtn" class="btn btn-danger">🗑 Hapus Semua</button>
+                    </div>
+                </div>
+
+                <!-- CUSTOMER LIST -->
+                <div class="card">
+                    <h2>📋 Daftar Pelanggan</h2>
+                    <div id="customerList" class="customer-list">
+                        <div style="text-align: center; padding: 40px; color: #999;">
+                            📭 Belum ada data pelanggan
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="qris-footer">
+            <p>&copy; 2026 QRIS Pelanggan System | Powered by JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="list-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Pelanggan - QRIS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="qris-header">
+            <div class="logo-section">
+                <h1>📋 Form Data Pelanggan</h1>
+                <p>Lengkapi data pembeli/pelanggan QRIS</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Scan</a>
+                <a href="list.html" class="nav-link">Data Pelanggan</a>
+            </nav>
+        </header>
+
+        <main class="main-content" style="grid-template-columns: 1fr;">
+            <section class="scan-section">
+                <div class="card">
+                    <h2>📝 Isi Data Pelanggan</h2>
+                    
+                    <form id="customerForm" class="form-container">
+                        <div class="form-group">
+                            <label for="barcode">Barcode/ID *</label>
+                            <input 
+                                type="text" 
+                                id="barcode" 
+                                name="barcode"
+                                placeholder="Barcode akan terisi otomatis"
+                                readonly
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap *</label>
+                            <input 
+                                type="text" 
+                                id="nama" 
+                                name="nama"
+                                placeholder="Masukkan nama lengkap"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email"
+                                    placeholder="email@example.com"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telepon">Nomor Telepon *</label>
+                                <input 
+                                    type="tel" 
+                                    id="telepon" 
+                                    name="telepon"
+                                    placeholder="08xxxxxxxxxx"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alamat">Alamat Lengkap *</label>
+                            <textarea 
+                                id="alamat" 
+                                name="alamat"
+                                placeholder="Masukkan alamat lengkap"
+                                rows="3"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="kota">Kota *</label>
+                                <input 
+                                    type="text" 
+                                    id="kota" 
+                                    name="kota"
+                                    placeholder="Masukkan kota"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="provinsi">Provinsi *</label>
+                                <input 
+                                    type="text" 
+                                    id="provinsi" 
+                                    name="provinsi"
+                                    placeholder="Masukkan provinsi"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tipePembeli">Tipe Pembeli *</label>
+                            <select id="tipePembeli" name="tipePembeli" required>
+                                <option value="">-- Pilih Tipe Pembeli --</option>
+                                <option value="individu">Individu</option>
+                                <option value="bisnis">Bisnis</option>
+                                <option value="korporat">Korporat</option>
+                                <option value="reseller">Reseller</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="totalTransaksi">Total Transaksi (Rp) *</label>
+                            <input 
+                                type="number" 
+                                id="totalTransaksi" 
+                                name="totalTransaksi"
+                                placeholder="0"
+                                min="0"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="catatan">Catatan Tambahan</label>
+                            <textarea 
+                                id="catatan" 
+                                name="catatan"
+                                placeholder="Catatan atau informasi tambahan (opsional)"
+                                rows="2"
+                            ></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">💾 Simpan Data</button>
+                            <button type="reset" class="btn btn-secondary">🔄 Reset</button>
+                            <a href="index.html" class="btn btn-secondary">⬅ Kembali</a>
+                        </div>
+                    </form>
+
+                    <div class="status-message" id="formStatus"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="qris-footer">
+            <p>&copy; 2026 QRIS Pelanggan System | Powered by JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="form-script.js"></script>
+</body>
+</html>

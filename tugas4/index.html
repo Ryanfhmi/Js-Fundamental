@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Barcode QRIS - Pelanggan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="qris-header">
+            <div class="logo-section">
+                <h1>📱 QRIS Pelanggan</h1>
+                <p>Sistem Pengambilan Data Pembeli dengan Scan Barcode</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">Scan</a>
+                <a href="list.html" class="nav-link">Data Pelanggan</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="scan-section">
+                <div class="card">
+                    <h2>🔍 Scan Barcode</h2>
+                    
+                    <div class="scan-info">
+                        <p>Arahkan kamera ke barcode/QR code untuk memulai pengambilan data pelanggan.</p>
+                    </div>
+
+                    <!-- Video preview untuk barcode scanner -->
+                    <div class="scanner-container" id="scanner">
+                        <video id="video" playsinline></video>
+                        <div class="scanner-overlay">
+                            <div class="scan-frame"></div>
+                        </div>
+                    </div>
+
+                    <!-- Input manual jika scanner tidak tersedia -->
+                    <div class="manual-input">
+                        <label for="barcodeInput">Atau masukkan barcode/ID secara manual:</label>
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="barcodeInput" 
+                                placeholder="Masukkan barcode atau ID pembeli"
+                                autocomplete="off"
+                            >
+                            <button id="submitBarcode" class="btn btn-primary">Lanjut</button>
+                        </div>
+                    </div>
+
+                    <div class="status-message" id="statusMessage"></div>
+
+                    <!-- Tombol aksi -->
+                    <div class="action-buttons">
+                        <button id="startCamera" class="btn btn-secondary">🎥 Mulai Kamera</button>
+                        <button id="stopCamera" class="btn btn-danger" style="display:none;">⏹ Stop Kamera</button>
+                    </div>
+                </div>
+
+                <div class="card quick-links">
+                    <h3>⚡ Menu Cepat</h3>
+                    <a href="form.html" class="btn btn-primary" style="display:block; text-align:center;">➕ Input Data Manual</a>
+                    <a href="list.html" class="btn btn-info" style="display:block; text-align:center; margin-top:10px;">📋 Lihat Semua Data</a>
+                </div>
+            </section>
+
+            <!-- Hasil scan terakhir -->
+            <section class="recent-section">
+                <div class="card">
+                    <h3>📌 Scan Terakhir</h3>
+                    <div id="lastScanInfo" class="scan-result">
+                        Belum ada scan
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="qris-footer">
+            <p>&copy; 2026 QRIS Pelanggan System | Powered by JavaScript</p>
+        </footer>
+    </div>
+
+    <!-- Library untuk barcode scanning -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
